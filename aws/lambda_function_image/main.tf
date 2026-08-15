@@ -64,7 +64,7 @@ resource "aws_cloudwatch_log_group" "this" {
   # checkov:skip=CKV_AWS_158: Don't want KMS
   # checkov:skip=CKV_AWS_338: Don't want long retention
   name              = local.log_group_name
-  retention_in_days = 14
+  retention_in_days = var.log_retention_in_days
 }
 
 resource "aws_lambda_function" "this" {
@@ -79,7 +79,7 @@ resource "aws_lambda_function" "this" {
   kms_key_arn                    = data.aws_kms_key.aws_lambda_kms_key.arn
   memory_size                    = var.memory_size
   package_type                   = "Image"
-  reserved_concurrent_executions = 10 # Deliberately low to prevent abuse.
+  reserved_concurrent_executions = var.reserved_concurrent_executions
   role                           = aws_iam_role.this.arn
   timeout                        = var.timeout
 

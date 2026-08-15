@@ -44,7 +44,9 @@ No modules.
 | <a name="input_image"></a> [image](#input\_image) | Container image configuration for the Lambda function.<br/><br/>- uri: The ECR or registry image URI used for the Lambda package.<br/>- command: The optional command list passed to the container image. Defaults to []. | <pre>object({<br/>    uri     = string<br/>    command = list(string)<br/>  })</pre> | n/a | yes |
 | <a name="input_label"></a> [label](#input\_label) | Short, reusable label used as the prefix for IAM resource names and other stable identifiers in this module. | `string` | n/a | yes |
 | <a name="input_log_group_name"></a> [log\_group\_name](#input\_log\_group\_name) | Optional override for the CloudWatch log group name. When unset, AWS's default Lambda log group name is used. | `string` | `null` | no |
+| <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Number of days to retain the Lambda function log group. | `number` | `14` | no |
 | <a name="input_memory_size"></a> [memory\_size](#input\_memory\_size) | Memory allocation for the Lambda function, in MB. | `number` | n/a | yes |
+| <a name="input_reserved_concurrent_executions"></a> [reserved\_concurrent\_executions](#input\_reserved\_concurrent\_executions) | Maximum number of concurrent executions allowed for the Lambda function. Leave unset to keep the default safety cap of 10. | `number` | `10` | no |
 | <a name="input_timeout"></a> [timeout](#input\_timeout) | Maximum execution time, in seconds, before the Lambda function times out. | `number` | n/a | yes |
 
 ## Outputs

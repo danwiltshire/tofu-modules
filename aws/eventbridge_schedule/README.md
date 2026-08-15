@@ -39,7 +39,7 @@ No modules.
 
 | Name | Description |
 | ---- | ----------- |
-| <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | n/a |
-| <a name="output_schedule_arn"></a> [schedule\_arn](#output\_schedule\_arn) | n/a |
-| <a name="output_schedule_name"></a> [schedule\_name](#output\_schedule\_name) | n/a |
+| <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | The ARN of the IAM role used by the EventBridge schedule. |
+| <a name="output_schedule_arn"></a> [schedule\_arn](#output\_schedule\_arn) | The ARN of the EventBridge schedule. |
+| <a name="output_schedule_name"></a> [schedule\_name](#output\_schedule\_name) | The name of the EventBridge schedule. |
 <!-- END OF PRE-COMMIT-OPENTOFU DOCS HOOK -->

@@ -44,6 +44,6 @@ No modules.
 
 | Name | Description |
 | ---- | ----------- |
-| <a name="output_event_bus_arn"></a> [event\_bus\_arn](#output\_event\_bus\_arn) | n/a |
-| <a name="output_event_bus_name"></a> [event\_bus\_name](#output\_event\_bus\_name) | n/a |
+| <a name="output_event_bus_arn"></a> [event\_bus\_arn](#output\_event\_bus\_arn) | The ARN of the EventBridge event bus. |
+| <a name="output_event_bus_name"></a> [event\_bus\_name](#output\_event\_bus\_name) | The name of the EventBridge event bus. |
 <!-- END OF PRE-COMMIT-OPENTOFU DOCS HOOK -->

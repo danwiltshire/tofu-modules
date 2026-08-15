@@ -41,6 +41,6 @@ No modules.
 
 | Name | Description |
 | ---- | ----------- |
-| <a name="output_endpoint_id"></a> [endpoint\_id](#output\_endpoint\_id) | n/a |
-| <a name="output_endpoint_url"></a> [endpoint\_url](#output\_endpoint\_url) | n/a |
+| <a name="output_endpoint_id"></a> [endpoint\_id](#output\_endpoint\_id) | The generated endpoint identifier from the EventBridge global endpoint URL. |
+| <a name="output_endpoint_url"></a> [endpoint\_url](#output\_endpoint\_url) | The HTTPS URL of the EventBridge global endpoint. |
 <!-- END OF PRE-COMMIT-OPENTOFU DOCS HOOK -->

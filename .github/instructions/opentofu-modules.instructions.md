@@ -29,6 +29,7 @@ applyTo: "**/*.tf, **/*.tofu, **/*.tfvars, **/README.md"
   ```
 
 - Give every module variable user-friendly documentation that explains what it does and why it exists. For object variables, use a HEREDOC description documenting every object key and its default, for example:
+- Add a `description` to every output value in a module so the consumer can understand what is being exposed and how it should be used.
 
   ```hcl
   variable "image" {
