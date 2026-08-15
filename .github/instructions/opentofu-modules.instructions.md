@@ -1,0 +1,46 @@
+---
+name: OpenTofu Module Guidelines
+description: "Use when creating, reviewing, or modifying OpenTofu/Terraform modules, including AWS resources, variables, IAM policies, providers, module composition, Checkov findings, and resource naming."
+applyTo: "**/*.tf, **/*.tofu, **/*.tfvars, **/README.md"
+---
+
+# OpenTofu Module Guidelines
+
+- Treat this repository as an OpenTofu module library. Keep changes focused on reusable module patterns and follow existing repository conventions.
+- Modules must create a pattern containing more than one resource. Do not add a module whose sole purpose is creating one resource, such as an S3 bucket.
+- Modules should accept a `label` variable and use it primarily as a prefix for top-level resource names, including resources such as RDS clusters and IAM roles. Do not apply `label` to names that do not need to be globally unique, such as IAM inline policy names.
+- Use forward slashes in names for AWS Systems Manager Parameter Store parameters, Secrets Manager secrets, and CloudWatch alarms. Use hyphens in names for all other resources unless the service requires a different format.
+- Keep slash-delimited names hierarchical and consistent, for example `/service/environment/setting` for SSM parameters and secrets, and `/service/environment/alarm` for CloudWatch alarms. Use hyphen-delimited names such as `label-resource-purpose` for other resources.
+- Modules that create CloudWatch log groups should expose an optional `log_group_name` variable for callers that need to override the name. When it is not set, use the AWS-vended log-group format, such as `/aws/lambda/<function-name>`.
+- Do not nest modules without asking the user for permission first.
+- Prefer the simplest implementation. Ask the user for permission before introducing `for_each`.
+- Do not add Checkov ignore or skip rules automatically. Explain the finding and ask the user to accept the specific exception before adding an ignore.
+- Keep IAM policies least-privilege: grant only the actions, resources, and conditions required by the module's behavior.
+- Configure EC2 security group rules with least privilege by default. Limit each rule to the required protocol, port range, and source or destination, prefer security-group or specific CIDR sources over broad network ranges, and ask the user to approve any public `0.0.0.0/0` or `::/0` access.
+- Do not define provider configurations in modules. Modules may declare `required_providers`, but provider configuration belongs to the calling root module.
+- Never run `tofu init` in this repository. Use `tofu validate` only for validation checks.
+- Each module `README.md` must include these exact markers for the `tofu_docs` pre-commit hook:
+
+  ```markdown
+  <!-- BEGINNING OF PRE-COMMIT-OPENTOFU DOCS HOOK -->
+
+  <!-- END OF PRE-COMMIT-OPENTOFU DOCS HOOK -->
+  ```
+
+- Give every module variable user-friendly documentation that explains what it does and why it exists. For object variables, use a HEREDOC description documenting every object key and its default, for example:
+
+  ```hcl
+  variable "image" {
+    type = object({
+      uri     = string
+      command = list(string)
+    })
+
+    description = <<-EOT
+      Configuration for the container image used by the function.
+
+      - uri: The image URI. Required, with no default.
+      - command: The optional command list passed to the image. Defaults to [].
+    EOT
+  }
+  ```

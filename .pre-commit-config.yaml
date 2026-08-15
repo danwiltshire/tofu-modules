@@ -4,3 +4,9 @@ repos:
     hooks:
       - id: tofu_fmt
       - id: tofu_docs
+
+  - repo: https://github.com/bridgecrewio/checkov.git
+    rev: 3.3.9
+    hooks:
+      - id: checkov
+      - id: checkov_secrets
