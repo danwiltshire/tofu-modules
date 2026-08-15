@@ -1,7 +1,9 @@
 output "event_bus_name" {
-  value = aws_cloudwatch_event_bus.this.name
+  description = "The name of the EventBridge event bus."
+  value       = aws_cloudwatch_event_bus.this.name
 }
 
 output "event_bus_arn" {
-  value = aws_cloudwatch_event_bus.this.arn
+  description = "The ARN of the EventBridge event bus."
+  value       = aws_cloudwatch_event_bus.this.arn
 }

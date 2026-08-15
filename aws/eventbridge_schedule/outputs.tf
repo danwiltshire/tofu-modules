@@ -1,11 +1,14 @@
 output "schedule_arn" {
-  value = aws_scheduler_schedule.this.arn
+  description = "The ARN of the EventBridge schedule."
+  value       = aws_scheduler_schedule.this.arn
 }
 
 output "schedule_name" {
-  value = aws_scheduler_schedule.this.name
+  description = "The name of the EventBridge schedule."
+  value       = aws_scheduler_schedule.this.name
 }
 
 output "role_arn" {
-  value = aws_iam_role.scheduler_role.arn
+  description = "The ARN of the IAM role used by the EventBridge schedule."
+  value       = aws_iam_role.scheduler_role.arn
 }

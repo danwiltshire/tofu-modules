@@ -73,6 +73,28 @@ variable "log_group_name" {
   description = "Optional override for the CloudWatch log group name. When unset, AWS's default Lambda log group name is used."
 }
 
+variable "log_retention_in_days" {
+  type        = number
+  default     = 14
+  description = "Number of days to retain the Lambda function log group."
+
+  validation {
+    condition     = var.log_retention_in_days >= 1
+    error_message = "log_retention_in_days must be at least 1."
+  }
+}
+
+variable "reserved_concurrent_executions" {
+  type        = number
+  default     = 10
+  description = "Maximum number of concurrent executions allowed for the Lambda function. Leave unset to keep the default safety cap of 10."
+
+  validation {
+    condition     = var.reserved_concurrent_executions >= 0
+    error_message = "reserved_concurrent_executions must be 0 or greater."
+  }
+}
+
 variable "enable_iam_function_url" {
   type        = bool
   default     = false
