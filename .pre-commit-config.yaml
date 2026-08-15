@@ -9,4 +9,7 @@ repos:
     rev: 3.3.9
     hooks:
       - id: checkov
+        args:
+          - --quiet
+          - --compact
       - id: checkov_secrets
