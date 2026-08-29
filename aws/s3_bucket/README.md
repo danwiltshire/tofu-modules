@@ -29,7 +29,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
-| <a name="input_context"></a> [context](#input\_context) | The standard naming context used to derive deterministic resource names.<br/><br/>- application: The stable application identifier.<br/>- environment: The deployment environment identifier.<br/>- id: The stable workload, component, or instance identifier.<br/>- purpose: The optional resource purpose identifier. | <pre>object({<br/>    application = string<br/>    environment = string<br/>    id          = string<br/>    purpose     = optional(string)<br/>  })</pre> | n/a | yes |
+| <a name="input_context"></a> [context](#input\_context) | The standard naming context used to derive deterministic resource names.<br/><br/>- application: The stable application identifier.<br/>- environment: The deployment environment identifier.<br/>- id: The stable workload, component, or instance identifier.<br/>- purpose: The resource purpose identifier. | <pre>object({<br/>    application = string<br/>    environment = string<br/>    id          = string<br/>    purpose     = string<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
