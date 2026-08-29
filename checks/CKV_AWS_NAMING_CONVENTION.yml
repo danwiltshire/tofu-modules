@@ -2,6 +2,7 @@ metadata:
   name: "Ensure resource names follow the organisational naming convention"
   id: "CKV_AWS_NAMING_CONVENTION"
   category: "CONVENTION"
+  guideline: "https://github.com/danwiltshire/tofu-modules/blob/main/conventions/RESOURCE_NAMING.md"
   severity: "HIGH"
 
 definition:
