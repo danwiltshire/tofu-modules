@@ -13,7 +13,7 @@ definition:
       attribute: "identifier"
       operator: "regex_match"
       # application-environment-component-instance-1
-      value: "^[^-]+-[^-]+-[^-]+-instance-[0-9]$"
+      value: "^[A-Za-z0-9]+-[A-Za-z0-9]+-[A-Za-z0-9]+-instance-[0-9]$"
 
     - cond_type: "attribute"
       resource_types:
@@ -21,12 +21,12 @@ definition:
       attribute: "name"
       operator: "regex_match"
       # /application/environment/component/resource-purpose
-      value: "^\/[^/]+\/[^/]+\/[^/]+\/[^/]+$"
+      value: "^\/[A-Za-z0-9]+\/[A-Za-z0-9]+\/[A-Za-z0-9]+\/[A-Za-z0-9]+$"
 
     - cond_type: "attribute"
       resource_types:
         - "aws_vpc"
       attribute: "tags.Name"
       operator: "regex_match"
-      # application-environment-region
-      value: "^[^-]+-[^-]+-[^-]+$"
+      # application-environment-aws-region
+      value: "^[A-Za-z0-9]+-[A-Za-z0-9]+-(eu-west-2|eu-central-1|us-east-1)$"
