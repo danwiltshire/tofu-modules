@@ -1,4 +1,4 @@
-# Used by the utils/label module.
+# Defined by the consuming root module.
 variable "context" {
   type = object({
     application      = string
