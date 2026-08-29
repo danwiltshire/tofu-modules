@@ -1,0 +1,15 @@
+metadata:
+  name: "Ensure resource names follow the organisational naming convention"
+  id: "CKV_AWS_NAMING_CONVENTION"
+  category: "CONVENTION"
+  severity: "HIGH"
+
+definition:
+  or:
+    - cond_type: "attribute"
+      resource_types:
+        - "aws_db_instance"
+      attribute: "identifier"
+      operator: "regex_match"
+      # application-environment-id-instance-1
+      value: "^[^-]+-[^-]+-[^-]+-instance-[0-9]$"
