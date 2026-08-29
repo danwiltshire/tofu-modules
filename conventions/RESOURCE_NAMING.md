@@ -15,7 +15,8 @@ context to create compliant resource names. The context has three identifiers:
 
 ## Amazon Web Services (AWS)
 
-| Service         | Resource | Naming Convention                                           |
-| --------------- | -------- | ----------------------------------------------------------- |
-| RDS             | Instance | `{application_name}-{environment_name}-{id}-instance-{0-9}` |
-| Secrets Manager | Secret   | `/{application_name}/{environment_name}/{id}/{purpose}`     |
+| Service         | Resource  | Naming Convention                                           |
+| --------------- | --------- | ----------------------------------------------------------- |
+| CloudWatch      | Log Group | `/{application_name}/{environment_name}/{id}/{purpose}`     |
+| RDS             | Instance  | `{application_name}-{environment_name}-{id}-instance-{0-9}` |
+| Secrets Manager | Secret    | `/{application_name}/{environment_name}/{id}/{purpose}`     |
