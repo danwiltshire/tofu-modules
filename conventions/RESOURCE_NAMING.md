@@ -4,15 +4,18 @@ All resources should use the naming conventions outlined in this document.
 
 Checkov rules in [checks/](../checks/) are used to enforce them where possible.
 
-## OpenTofu Label Helper
+## Root Module Context
 
-All modules use the [label module](../utils/label/README.md) to provide the required
-context to create compliant resource names. The context has these identifiers:
+Each root module defines the required context in its `variables.tf`. See [Root Module
+Structure](ROOT_MODULE_STRUCTURE.md) for the standard root-module layout. The context
+has these identifiers:
 
 - `application`: A stable application identifier.
 - `environment`: A deployment environment identifier.
 - `component`: A stable workload or subsystem identifier.
-- `resource_purpose`: An optional identifier describing the resource's purpose.
+
+Resource modules can require `resource_purpose`, an identifier describing the
+resource's purpose. Add it to the downstream module's context with `merge()`.
 
 ## Amazon Web Services (AWS)
 

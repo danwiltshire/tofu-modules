@@ -8,9 +8,10 @@ See the project wiki for module details and usage notes: https://github.com/dani
 
 ## Other Documentation
 
-| Document                                               | Purpose                      |
-| ------------------------------------------------------ | ---------------------------- |
-| [RESOURCE_NAMING.md](./conventions/RESOURCE_NAMING.md) | Resource naming conventions. |
+| Document                                                           | Purpose                         |
+| ------------------------------------------------------------------ | ------------------------------- |
+| [RESOURCE_NAMING.md](./conventions/RESOURCE_NAMING.md)             | Resource naming conventions.    |
+| [ROOT_MODULE_STRUCTURE.md](./conventions/ROOT_MODULE_STRUCTURE.md) | Expected root module structure. |
 
 ## Development
 

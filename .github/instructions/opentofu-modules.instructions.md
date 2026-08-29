@@ -8,7 +8,7 @@ applyTo: "**/*.tf, **/*.tofu, **/*.tfvars, **/README.md"
 
 - Treat this repository as an OpenTofu module library. Keep changes focused on reusable module patterns and follow existing repository conventions.
 - Modules must create a pattern containing more than one resource. Do not add a module whose sole purpose is creating one resource, such as an S3 bucket.
-- Modules must accept a `context` variable using the standard label contract and derive resource names from it. The contract is `object({ application = string, environment = string, component = string })`. Consumers pass it as `context = module.label.context`.
+- Modules must accept a `context` variable defined by the consuming root module and derive resource names from it. The standard contract is `object({ application = string, environment = string, component = string, repo_url = string })`. Resource modules may require `resource_purpose` when it is necessary to form their name.
 - Use `local.label = "${var.context.application}-${var.context.environment}-${var.context.component}"` as the base prefix for top-level resource names, including RDS clusters and IAM roles. Do not apply the prefix to names that do not need to be globally unique, such as IAM inline policy names.
 - Follow `conventions/RESOURCE_NAMING.md` when forming resource names. Use hyphens by default, and forward-slash-delimited hierarchical names for resources such as Secrets Manager secrets, SSM parameters, and CloudWatch alarms.
 - Use forward slashes in names for AWS Systems Manager Parameter Store parameters, Secrets Manager secrets, and CloudWatch alarms. Use hyphens in names for all other resources unless the service requires a different format.
