@@ -28,7 +28,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
-| <a name="input_context"></a> [context](#input\_context) | The standard naming context used to derive deterministic resource names.<br/><br/>- application: The stable application identifier.<br/>- environment: The deployment environment identifier.<br/>- id: The stable workload, component, or instance identifier.<br/>- purpose: The required resource purpose identifier for this module.<br/>- repo\_url: The full repository URL. | <pre>object({<br/>    application = string<br/>    environment = string<br/>    id          = string<br/>    purpose     = string<br/>    repo_url    = string<br/>  })</pre> | n/a | yes |
+| <a name="input_context"></a> [context](#input\_context) | The standard naming context used to derive deterministic resource names.<br/><br/>- application: The stable application identifier.<br/>- environment: The deployment environment identifier.<br/>- component: The stable workload or subsystem identifier.<br/>- resource\_purpose: The required identifier describing the resource's purpose for this module.<br/>- repo\_url: The full repository URL. | <pre>object({<br/>    application      = string<br/>    environment      = string<br/>    component        = string<br/>    resource_purpose = string<br/>    repo_url         = string<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
