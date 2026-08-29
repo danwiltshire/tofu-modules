@@ -8,7 +8,9 @@ applyTo: "**/*.tf, **/*.tofu, **/*.tfvars, **/README.md"
 
 - Treat this repository as an OpenTofu module library. Keep changes focused on reusable module patterns and follow existing repository conventions.
 - Modules must create a pattern containing more than one resource. Do not add a module whose sole purpose is creating one resource, such as an S3 bucket.
-- Modules should accept a `label` variable and use it primarily as a prefix for top-level resource names, including resources such as RDS clusters and IAM roles. Do not apply `label` to names that do not need to be globally unique, such as IAM inline policy names.
+- Modules must accept a `context` variable using the standard label contract and derive resource names from it. The contract is `object({ application = string, environment = string, id = string })`. Consumers pass it as `context = module.label.context`.
+- Use `local.label = "${var.context.application}-${var.context.environment}-${var.context.id}"` as the base prefix for top-level resource names, including RDS clusters and IAM roles. Do not apply the prefix to names that do not need to be globally unique, such as IAM inline policy names.
+- Follow `conventions/RESOURCE_NAMING.md` when forming resource names. Use hyphens by default, and forward-slash-delimited hierarchical names for resources such as Secrets Manager secrets, SSM parameters, and CloudWatch alarms.
 - Use forward slashes in names for AWS Systems Manager Parameter Store parameters, Secrets Manager secrets, and CloudWatch alarms. Use hyphens in names for all other resources unless the service requires a different format.
 - Keep slash-delimited names hierarchical and consistent, for example `/service/environment/setting` for SSM parameters and secrets, and `/service/environment/alarm` for CloudWatch alarms. Use hyphen-delimited names such as `label-resource-purpose` for other resources.
 - Modules that create CloudWatch log groups should expose an optional `log_group_name` variable for callers that need to override the name. When it is not set, use the AWS-vended log-group format, such as `/aws/lambda/<function-name>`.
