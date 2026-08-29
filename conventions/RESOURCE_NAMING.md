@@ -24,3 +24,4 @@ resource's purpose. Add it to the downstream module's context with `merge()`.
 | CloudWatch      | Log Group | `/{application_name}/{environment_name}/{component}/{resource_purpose}` |
 | RDS             | Instance  | `{application_name}-{environment_name}-{component}-instance-{0-9}`      |
 | Secrets Manager | Secret    | `/{application_name}/{environment_name}/{component}/{resource_purpose}` |
+| VPC             | VPC       | `{application_name}-{environment_name}-{region}`                        |

@@ -22,3 +22,11 @@ definition:
       operator: "regex_match"
       # /application/environment/component/resource-purpose
       value: "^\/[^/]+\/[^/]+\/[^/]+\/[^/]+$"
+
+    - cond_type: "attribute"
+      resource_types:
+        - "aws_vpc"
+      attribute: "tags.Name"
+      operator: "regex_match"
+      # application-environment-region
+      value: "^[^-]+-[^-]+-[^-]+$"
