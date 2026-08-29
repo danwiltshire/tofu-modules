@@ -5,6 +5,7 @@ variable "context" {
     environment = string
     id          = string
     purpose     = string
+    repo_url    = string
   })
 
   description = <<-EOT
@@ -13,6 +14,7 @@ variable "context" {
     - application: The stable application identifier.
     - environment: The deployment environment identifier.
     - id: The stable workload, component, or instance identifier.
-    - purpose: The resource purpose identifier.
+    - purpose: The required resource purpose identifier for this module.
+    - repo_url: The full repository URL.
   EOT
 }
