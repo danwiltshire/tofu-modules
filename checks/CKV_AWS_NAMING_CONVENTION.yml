@@ -12,7 +12,7 @@ definition:
         - "aws_db_instance"
       attribute: "identifier"
       operator: "regex_match"
-      # application-environment-id-instance-1
+      # application-environment-component-instance-1
       value: "^[^-]+-[^-]+-[^-]+-instance-[0-9]$"
 
     - cond_type: "attribute"
@@ -20,5 +20,5 @@ definition:
         - "aws_cloudwatch_log_group"
       attribute: "name"
       operator: "regex_match"
-      # /application/environment/id/purpose
+      # /application/environment/component/resource-purpose
       value: "^\/[^/]+\/[^/]+\/[^/]+\/[^/]+$"

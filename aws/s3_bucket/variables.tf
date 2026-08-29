@@ -1,11 +1,11 @@
 # Used by the utils/label module.
 variable "context" {
   type = object({
-    application = string
-    environment = string
-    id          = string
-    purpose     = string
-    repo_url    = string
+    application      = string
+    environment      = string
+    component        = string
+    resource_purpose = string
+    repo_url         = string
   })
 
   description = <<-EOT
@@ -13,8 +13,8 @@ variable "context" {
 
     - application: The stable application identifier.
     - environment: The deployment environment identifier.
-    - id: The stable workload, component, or instance identifier.
-    - purpose: The required resource purpose identifier for this module.
+    - component: The stable workload or subsystem identifier.
+    - resource_purpose: The required identifier describing the resource's purpose for this module.
     - repo_url: The full repository URL.
   EOT
 }

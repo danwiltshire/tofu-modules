@@ -8,16 +8,16 @@ variable "environment" {
   description = "The deployment environment identifier used as the second segment of organisation-wide resource names, for example prod or staging."
 }
 
-variable "id" {
+variable "component" {
   type        = string
-  description = "The stable workload, component, or instance identifier used as the third segment of organisation-wide resource names, for example api."
+  description = "The stable workload or subsystem identifier used as the third segment of organisation-wide resource names, for example api."
 }
 
-variable "purpose" {
+variable "resource_purpose" {
   type        = string
   default     = null
   nullable    = true
-  description = "The optional resource purpose identifier, for example logs or artifacts."
+  description = "The optional identifier describing the resource's purpose, for example logs or artifacts."
 }
 
 variable "repo_url" {
