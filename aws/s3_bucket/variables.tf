@@ -4,7 +4,7 @@ variable "context" {
     application = string
     environment = string
     id          = string
-    purpose     = optional(string)
+    purpose     = string
   })
 
   description = <<-EOT
@@ -13,6 +13,6 @@ variable "context" {
     - application: The stable application identifier.
     - environment: The deployment environment identifier.
     - id: The stable workload, component, or instance identifier.
-    - purpose: The optional resource purpose identifier.
+    - purpose: The resource purpose identifier.
   EOT
 }
