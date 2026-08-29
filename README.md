@@ -6,6 +6,12 @@ This repository contains a small OpenTofu module library developed for my own pr
 
 See the project wiki for module details and usage notes: https://github.com/danielwiltshire/tofu-modules/wiki
 
+## Other Documentation
+
+| Document                                               | Purpose                      |
+| ------------------------------------------------------ | ---------------------------- |
+| [RESOURCE_NAMING.md](./conventions/RESOURCE_NAMING.md) | Resource naming conventions. |
+
 ## Development
 
 This repository expects the following tooling:
