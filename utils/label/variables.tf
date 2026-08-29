@@ -19,3 +19,8 @@ variable "purpose" {
   nullable    = true
   description = "The optional resource purpose identifier, for example logs or artifacts."
 }
+
+variable "repo_url" {
+  type        = string
+  description = "The repository URL, for example https://github.com/my-org/my-repo."
+}

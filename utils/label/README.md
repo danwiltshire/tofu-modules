@@ -12,6 +12,7 @@ module "label" {
   environment = "prod"
   id          = "api"
   purpose     = "logs"
+  repo_url    = "https://github.com/my-org/my-repo
 }
 
 module "thing" {
@@ -30,6 +31,7 @@ module "label" {
   application = "bart"
   environment = "prod"
   id          = "api"
+  repo_url    = "https://github.com/my-org/my-repo
 }
 
 module "s3_bucket" {
@@ -51,6 +53,7 @@ variable "context" {
     environment = string
     id          = string
     purpose     = string
+    repo_url    = string
   })
 
   description = <<-EOT
@@ -60,6 +63,7 @@ variable "context" {
     - environment: The deployment environment identifier.
     - id: The stable workload, component, or instance identifier.
     - purpose: The required resource purpose identifier for this module.
+    - repo_url: The full repository URL.
   EOT
 }
 
@@ -71,7 +75,6 @@ locals {
 For naming rules and resource-specific examples, see [Resource Naming](../../conventions/RESOURCE_NAMING.md).
 
 <!-- BEGINNING OF PRE-COMMIT-OPENTOFU DOCS HOOK -->
-
 ## Requirements
 
 No requirements.
@@ -90,17 +93,17 @@ No resources.
 
 ## Inputs
 
-| Name                                                               | Description                                                                                                                            | Type     | Default | Required |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | :------: |
-| <a name="input_application"></a> [application](#input_application) | The stable application identifier used as the first segment of organisation-wide resource names, for example payment-processor.        | `string` | n/a     |   yes    |
-| <a name="input_environment"></a> [environment](#input_environment) | The deployment environment identifier used as the second segment of organisation-wide resource names, for example prod or staging.     | `string` | n/a     |   yes    |
-| <a name="input_id"></a> [id](#input_id)                            | The stable workload, component, or instance identifier used as the third segment of organisation-wide resource names, for example api. | `string` | n/a     |   yes    |
-| <a name="input_purpose"></a> [purpose](#input_purpose)             | The optional resource purpose identifier, for example logs or artifacts.                                                               | `string` | `null`  |    no    |
+| Name | Description | Type | Default | Required |
+| ---- | ----------- | ---- | ------- | :------: |
+| <a name="input_application"></a> [application](#input\_application) | The stable application identifier used as the first segment of organisation-wide resource names, for example payment-processor. | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | The deployment environment identifier used as the second segment of organisation-wide resource names, for example prod or staging. | `string` | n/a | yes |
+| <a name="input_id"></a> [id](#input\_id) | The stable workload, component, or instance identifier used as the third segment of organisation-wide resource names, for example api. | `string` | n/a | yes |
+| <a name="input_purpose"></a> [purpose](#input\_purpose) | The optional resource purpose identifier, for example logs or artifacts. | `string` | `null` | no |
+| <a name="input_repo_url"></a> [repo\_url](#input\_repo\_url) | The repository URL, for example https://github.com/my-org/my-repo. | `string` | n/a | yes |
 
 ## Outputs
 
-| Name                                                     | Description                                                                                                                                                                           |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a name="output_context"></a> [context](#output_context) | The standard naming context for passing to other modules. It contains application, environment, id, and optional purpose, which consumers use to derive deterministic resource names. |
-
+| Name | Description |
+| ---- | ----------- |
+| <a name="output_context"></a> [context](#output\_context) | The standard naming context for passing to other modules. It contains application, environment, id, and optional purpose, which consumers use to derive deterministic resource names. |
 <!-- END OF PRE-COMMIT-OPENTOFU DOCS HOOK -->

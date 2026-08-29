@@ -6,5 +6,6 @@ output "context" {
     environment = var.environment
     id          = var.id
     purpose     = var.purpose
+    repo_url    = var.repo_url
   }
 }
