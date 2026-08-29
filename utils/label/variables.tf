@@ -12,3 +12,10 @@ variable "id" {
   type        = string
   description = "The stable workload, component, or instance identifier used as the third segment of organisation-wide resource names, for example api."
 }
+
+variable "purpose" {
+  type        = string
+  default     = null
+  nullable    = true
+  description = "The optional resource purpose identifier, for example logs or artifacts."
+}
