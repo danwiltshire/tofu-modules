@@ -2,8 +2,6 @@
 
 All resources should use the naming conventions outlined in this document.
 
-Checkov rules in [checks/](../checks/) are used to enforce them where possible.
-
 ## Root Module Context
 
 Each root module defines the required context in its `variables.tf`. See [Root Module
