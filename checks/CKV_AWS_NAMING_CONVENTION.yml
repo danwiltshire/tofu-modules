@@ -27,6 +27,5 @@ definition:
       resource_types:
         - "aws_vpc"
       attribute: "tags.Name"
-      operator: "regex_match"
-      # application-environment-aws-region
-      value: "^[A-Za-z0-9-]+$"
+      operator: "equals"
+      value: "${var.context.application}-${var.context.environment}-${data.aws_region.current.region}"
