@@ -19,9 +19,11 @@ applyTo: "**/*.tf, **/*.tofu, **/*.tfvars, **/README.md"
 - Prefer the simplest implementation. Ask the user for permission before introducing `for_each`.
 - Do not add Checkov ignore or skip rules automatically. Explain the finding and ask the user to accept the specific exception before adding an ignore.
 - Keep IAM policies least-privilege: grant only the actions, resources, and conditions required by the module's behavior.
+- Modules that create an IAM role must expose a `policy_documents` variable of type `map(string)`, mapping caller-selected inline policy names to JSON IAM policy documents. Attach each supplied document separately to the role, without merging it with module-managed policies.
 - Configure EC2 security group rules with least privilege by default. Limit each rule to the required protocol, port range, and source or destination, prefer security-group or specific CIDR sources over broad network ranges, and ask the user to approve any public `0.0.0.0/0` or `::/0` access.
 - Do not define provider configurations in modules. Modules may declare `required_providers`, but provider configuration belongs to the calling root module.
 - Do not run any OpenTofu commands in this repository. Do not use `tofu init`, `tofu validate`, or any other `tofu` CLI commands during development or review.
+- Do not run pre-commit hooks or Checkov in this repository. Do not use `pre-commit run`, `checkov`, or related wrapper commands during development or review.
 - Each module `README.md` must include these exact markers for the `tofu_docs` pre-commit hook:
 
   ```markdown
